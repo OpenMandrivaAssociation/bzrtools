@@ -1,20 +1,21 @@
-%{!?python_sitelib: %define python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
+# spec originally for RHEL from: http://www.natemccallum.com/uploads/rpms/bzr/
 
 Name:           bzrtools
-Version:        0.8.1
-Release:        4%{?dist}
+Version:        0.16.1
+Release:        %mkrel 1
 Summary:        A collection of utilities and plugins for Bazaar-NG
 
 Group:          Development/Tools
 License:        GPL
 URL:            http://bazaar-vcs.org/BzrTools
 Source0:        http://panoramicfeedback.com/opensource/%{name}-%{version}.tar.gz
+Patch0:		%{name}-0.16.1-disable-baz-import.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
-BuildRequires:  python24
-Requires:   python-abi = %(%{__python} -c "import sys ; print sys.version[:3]")
-Requires:   bzr >= 0.8
+BuildRequires:  python-devel
+Requires:       python >= 2.4 bzr >= 0.16
+Requires:       patch >= 2.5.9 rsync graphviz librsvg python-paramiko
 
 %description
 BzrTools is a collection of plugins for Bazaar-NG (bzr).  Among the included
@@ -30,28 +31,25 @@ plugins are:
 
 
 %prep
-%setup -q
+%setup -q -n %{name}
+%patch0 -p0 -b .disable-baz-import
 
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" %{__python} setup.py build
+CFLAGS="$RPM_OPT_FLAGS" python setup.py build
 
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__python} setup.py install -O1 --skip-build --root $RPM_BUILD_ROOT
+python setup.py install --root $RPM_BUILD_ROOT --record=INSTALLED_FILES
 # remove shebangs from all files as none should be executable scripts
-sed -e '/^#!\//,1 d' -i $RPM_BUILD_ROOT/%{python_sitelib}/bzrlib/plugins/bzrtools/*.py
+sed -e '/^#!\//,1 d' -i $RPM_BUILD_ROOT/%py_puresitedir/bzrlib/plugins/bzrtools/*.py
 
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 
-%files
+%files -f INSTALLED_FILES
 %defattr(-,root,root,-)
 %doc README NEWS COPYING
-%dir %{python_sitelib}/bzrlib/plugins/bzrtools
-%{python_sitelib}/bzrlib/plugins/bzrtools/*.py
-%{python_sitelib}/bzrlib/plugins/bzrtools/*.pyc
-%ghost %{python_sitelib}/bzrlib/plugins/bzrtools/*.pyo
