@@ -9,13 +9,13 @@ Group:          Development/Tools
 License:        GPL
 URL:            http://bazaar-vcs.org/BzrTools
 Source0:        http://panoramicfeedback.com/opensource/%{name}-%{version}.tar.gz
-Patch0:		%{name}-0.16.1-disable-baz-import.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
 BuildRequires:  python-devel
 Requires:       python >= 2.4 bzr >= 0.16
 Requires:       patch >= 2.5.9 rsync graphviz librsvg python-paramiko
+Requires:       python-pybaz
 
 %description
 BzrTools is a collection of plugins for Bazaar-NG (bzr).  Among the included
@@ -32,7 +32,6 @@ plugins are:
 
 %prep
 %setup -q -n %{name}
-%patch0 -p0 -b .disable-baz-import
 
 
 %build
