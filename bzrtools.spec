@@ -37,6 +37,8 @@ plugins are:
 %build
 CFLAGS="$RPM_OPT_FLAGS" python setup.py build
 
+%check
+python test.py
 
 %install
 rm -rf $RPM_BUILD_ROOT
