@@ -12,7 +12,7 @@ Source0:        http://panoramicfeedback.com/opensource/%{name}-%{version}.tar.g
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
-BuildRequires:  python-devel
+BuildRequires:  python-devel bzr
 Requires:       python >= 2.4 bzr >= 0.16
 Requires:       patch >= 2.5.9 rsync graphviz librsvg python-paramiko
 Requires:       python-pybaz
