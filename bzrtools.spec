@@ -5,7 +5,7 @@ Version:        0.17.0
 Release:        %mkrel 1
 Summary:        A collection of utilities and plugins for Bazaar-NG
 
-Group:          Development/Tools
+Group:          Development/Other
 License:        GPL
 URL:            http://bazaar-vcs.org/BzrTools
 Source0:        http://panoramicfeedback.com/opensource/%{name}-%{version}.tar.gz
