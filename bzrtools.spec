@@ -10,7 +10,6 @@ License:        GPL
 URL:            http://bazaar-vcs.org/BzrTools
 Source0:        http://panoramicfeedback.com/opensource/%{name}-%{version}.tar.gz
 Source1:        http://panoramicfeedback.com/opensource/%{name}-%{version}.tar.gz.sig
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(id -u -n)
 
 BuildArch:      noarch
 BuildRequires:  python-devel bzr
