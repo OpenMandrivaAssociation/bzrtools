@@ -14,7 +14,8 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(id -u -n)
 
 BuildArch:      noarch
 BuildRequires:  python-devel bzr
-Requires:       python >= 2.4 bzr >= 0.18
+Requires:       python >= 2.4
+Requires:       bzr >= 1.0
 Requires:       patch >= 2.5.9 rsync graphviz librsvg python-paramiko
 Requires:       python-pybaz
 
