@@ -1,15 +1,15 @@
 # spec originally for RHEL from: http://www.natemccallum.com/uploads/rpms/bzr/
 
 Name:           bzrtools
-Version:        1.1.0
+Version:        1.2.0
 Release:        %mkrel 1
 Summary:        A collection of utilities and plugins for Bazaar-NG
 
 Group:          Development/Other
 License:        GPL
 URL:            http://bazaar-vcs.org/BzrTools
-Source0:        http://panoramicfeedback.com/opensource/%{name}-%{version}.tar.gz
-Source1:        http://panoramicfeedback.com/opensource/%{name}-%{version}.tar.gz.sig
+Source0:        https://launchpad.net/%{name}/stable/%{version}/+download/%{name}-%{version}.tar.gz
+Source1:        https://launchpad.net/%{name}/stable/%{version}/+download/%{name}-%{version}.tar.gz.sig
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(id -u -n)
 
 BuildArch:      noarch
