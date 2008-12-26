@@ -2,7 +2,7 @@
 
 Name:           bzrtools
 Version:        1.10.0
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        A collection of utilities and plugins for Bazaar-NG
 
 Group:          Development/Other
