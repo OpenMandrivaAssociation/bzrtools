@@ -2,7 +2,7 @@
 
 Name:           bzrtools
 Version:        1.10.0
-Release:        %mkrel 2
+Release:        %mkrel 3
 Summary:        A collection of utilities and plugins for Bazaar-NG
 
 Group:          Development/Other
@@ -41,7 +41,7 @@ CFLAGS="$RPM_OPT_FLAGS" python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-python setup.py install --root $RPM_BUILD_ROOT --record=INSTALLED_FILES
+python setup.py install --root $RPM_BUILD_ROOT 
 # remove shebangs from all files as none should be executable scripts
 sed -e '/^#!\//,1 d' -i $RPM_BUILD_ROOT/%py_puresitedir/bzrlib/plugins/bzrtools/*.py
 
@@ -50,6 +50,13 @@ sed -e '/^#!\//,1 d' -i $RPM_BUILD_ROOT/%py_puresitedir/bzrlib/plugins/bzrtools/
 rm -rf $RPM_BUILD_ROOT
 
 
-%files -f INSTALLED_FILES
+%files 
 %defattr(-,root,root,-)
+%dir %py_puresitedir/bzrlib/plugins/bzrtools
+%py_puresitedir/bzrlib/plugins/bzrtools/*.py
+%py_puresitedir/bzrlib/plugins/bzrtools/*.pyc
+%dir %py_puresitedir/bzrlib/plugins/bzrtools/tests
+%py_puresitedir/bzrlib/plugins/bzrtools/tests/*.py
+%py_puresitedir/bzrlib/plugins/bzrtools/tests/*.pyc
+%py_puresitedir/BzrTools*.egg-info
 %doc README NEWS COPYING
