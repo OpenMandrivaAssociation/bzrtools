@@ -1,7 +1,7 @@
 # spec originally for RHEL from: http://www.natemccallum.com/uploads/rpms/bzr/
 
 Name:           bzrtools
-Version:        1.18.0
+Version:        2.0.0
 Release:        %mkrel 1
 Summary:        A collection of utilities and plugins for Bazaar-NG
 
@@ -15,7 +15,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(id -u -n)
 BuildArch:      noarch
 BuildRequires:  python-devel bzr
 Requires:       python >= 2.4
-Requires:       bzr >= 1.11
+Requires:       bzr >= 2.0
 Requires:       patch >= 2.5.9 rsync graphviz librsvg python-paramiko
 Requires:       python-pybaz
 
