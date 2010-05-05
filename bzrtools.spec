@@ -2,7 +2,7 @@
 
 Name:           bzrtools
 Version:        2.1.0
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        A collection of utilities and plugins for Bazaar-NG
 
 Group:          Development/Other
@@ -54,9 +54,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %dir %py_puresitedir/bzrlib/plugins/bzrtools
 %py_puresitedir/bzrlib/plugins/bzrtools/*.py
-%py_puresitedir/bzrlib/plugins/bzrtools/*.pyc
 %dir %py_puresitedir/bzrlib/plugins/bzrtools/tests
 %py_puresitedir/bzrlib/plugins/bzrtools/tests/*.py
-%py_puresitedir/bzrlib/plugins/bzrtools/tests/*.pyc
 %py_puresitedir/BzrTools*.egg-info
 %doc README NEWS COPYING
