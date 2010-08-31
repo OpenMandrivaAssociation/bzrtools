@@ -2,7 +2,7 @@
 
 Name:           bzrtools
 Version:        2.2.0
-Release:        %mkrel 2
+Release:        %mkrel 3
 Summary:        A collection of utilities and plugins for Bazaar-NG
 
 Group:          Development/Other
@@ -17,7 +17,6 @@ BuildRequires:  python-devel bzr
 Requires:       python >= 2.4
 Requires:       bzr >= 2.0
 Requires:       patch >= 2.5.9 rsync graphviz librsvg python-paramiko
-Requires:       python-pybaz
 
 %description
 BzrTools is a collection of plugins for Bazaar-NG (bzr).  Among the included
