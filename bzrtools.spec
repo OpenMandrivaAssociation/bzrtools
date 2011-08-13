@@ -1,7 +1,7 @@
 # spec originally for RHEL from: http://www.natemccallum.com/uploads/rpms/bzr/
 
 Name:           bzrtools
-Version:        2.3.1
+Version:        2.4.0
 Release:        %mkrel 1
 Summary:        A collection of utilities and plugins for Bazaar-NG
 
