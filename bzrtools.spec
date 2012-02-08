@@ -1,22 +1,24 @@
 # spec originally for RHEL from: http://www.natemccallum.com/uploads/rpms/bzr/
 
-Name:           bzrtools
-Version:        2.4.1
-Release:        %mkrel 1
-Summary:        A collection of utilities and plugins for Bazaar-NG
-
-Group:          Development/Other
-License:        GPL
-URL:            http://bazaar-vcs.org/BzrTools
-Source0:        https://launchpad.net/%{name}/stable/%{version}/+download/%{name}-%{version}.tar.gz
-Source1:        https://launchpad.net/%{name}/stable/%{version}/+download/%{name}-%{version}.tar.gz.sig
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(id -u -n)
-
-BuildArch:      noarch
-BuildRequires:  python-devel bzr
-Requires:       python >= 2.4
-Requires:       bzr >= 2.0
-Requires:       patch >= 2.5.9 rsync graphviz librsvg python-paramiko
+Name:		bzrtools
+Version:	2.5
+Release:	%mkrel 1
+Summary:	A collection of utilities and plugins for Bazaar-NG
+Group:		Development/Other
+License:	GPLv2
+URL:		http://bazaar-vcs.org/BzrTools
+Source0:	https://launchpad.net/%{name}/stable/%{version}/+download/%{name}-%{version}.tar.gz
+Source1:	https://launchpad.net/%{name}/stable/%{version}/+download/%{name}-%{version}.tar.gz.sig
+BuildArch:	noarch
+BuildRequires:	python-devel
+BuildRequires:	bzr
+Requires:	python
+Requires:	bzr
+Requires:	patch
+Requires:	rsync
+Requires:	graphviz
+Requires:	librsvg
+Requires:	python-paramiko
 
 %description
 BzrTools is a collection of plugins for Bazaar-NG (bzr).  Among the included
@@ -34,26 +36,23 @@ plugins are:
 %prep
 %setup -q -n %{name}
 
-
 %build
-CFLAGS="$RPM_OPT_FLAGS" python setup.py build
+CFLAGS="%{optflags}" python setup.py build
 
 %install
-rm -rf $RPM_BUILD_ROOT
-python setup.py install --root $RPM_BUILD_ROOT 
+rm -rf %{buildroot}
+python setup.py install --root %{buildroot}
 # remove shebangs from all files as none should be executable scripts
-sed -e '/^#!\//,1 d' -i $RPM_BUILD_ROOT/%py_puresitedir/bzrlib/plugins/bzrtools/*.py
-
+sed -e '/^#!\//,1 d' -i %{buildroot}%{py_puresitedir}/bzrlib/plugins/bzrtools/*.py
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
-
-%files 
+%files
 %defattr(-,root,root,-)
-%dir %py_puresitedir/bzrlib/plugins/bzrtools
-%py_puresitedir/bzrlib/plugins/bzrtools/*.py
-%dir %py_puresitedir/bzrlib/plugins/bzrtools/tests
-%py_puresitedir/bzrlib/plugins/bzrtools/tests/*.py
-%py_puresitedir/BzrTools*.egg-info
 %doc README NEWS COPYING
+%dir %{py_puresitedir}/bzrlib/plugins/bzrtools
+%{py_puresitedir}/bzrlib/plugins/bzrtools/*.py
+%dir %{py_puresitedir}/bzrlib/plugins/bzrtools/tests
+%{py_puresitedir}/bzrlib/plugins/bzrtools/tests/*.py
+%{py_puresitedir}/BzrTools*.egg-info
