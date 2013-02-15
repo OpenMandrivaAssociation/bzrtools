@@ -2,7 +2,7 @@
 
 Name:		bzrtools
 Version:	2.5
-Release:	%mkrel 1
+Release:	2
 Summary:	A collection of utilities and plugins for Bazaar-NG
 Group:		Development/Other
 License:	GPLv2
