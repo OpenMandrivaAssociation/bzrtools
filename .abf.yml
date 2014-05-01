@@ -1,2 +1,4 @@
+removed_sources:
+  bzrtools-2.5.tar.gz: 3adcfc3419989611fb839c5e49f6f4fa725508e1
 sources:
-  "bzrtools-2.5.tar.gz": 3adcfc3419989611fb839c5e49f6f4fa725508e1
+  bzrtools-2.6.0.tar.gz: 17896d518e85c6242f8ecc0a763ab7e10fea8c9b
