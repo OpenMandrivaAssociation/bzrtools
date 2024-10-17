@@ -6,7 +6,7 @@ Release:	2
 Summary:	A collection of utilities and plugins for Bazaar-NG
 Group:		Development/Other
 License:	GPLv2
-URL:		http://bazaar-vcs.org/BzrTools
+URL:		https://bazaar-vcs.org/BzrTools
 Source0:	https://launchpad.net/%{name}/stable/%{version}/+download/%{name}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	python-devel
